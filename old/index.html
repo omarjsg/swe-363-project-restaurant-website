@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style-bootstrap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&family=Roboto&display=swap"
+        rel="stylesheet">
+    <title>Restaurant</title>
+</head>
+
+<nav class="navbar navbar-default navbar-expand-lg navbar-dark fixed-top px-10">
+    <div class="container-fluid bg-brown">
+        <a href="index.html" class="navbar-brand">
+            <img class="logo-width" src="projectimages/logo-White.svg" alt="logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item top-nav-bar text-nowrap"><a href="index.html#home" class="text-decoration-none">Home</a>
+            </li>
+            <li class="nav-item top-nav-bar text-nowrap"><a href="index.html#menu" class="text-decoration-none">Menu</a>
+            </li>
+            <li class="nav-item top-nav-bar text-nowrap"><a href="index.html#gallery"
+                    class="text-decoration-none">Gallery</a></li>
+            <li class="nav-item top-nav-bar text-nowrap"><a href="index.html#testimonials"
+                    class="text-decoration-none">Testimonials</a></li>
+            <li class="nav-item top-nav-bar text-nowrap"><a href="index.html#Contact-Us"
+                    class="text-decoration-none">Cantact us</a></li>
+            <li class="nav-item top-nav-bar-red text-nowrap"><a href="" class="text-decoration-none">Search</a></li>
+            <li class="nav-item top-nav-bar-red text-nowrap"><a href="" class="text-decoration-none">Profile</a>
+            </li>
+            <li class="nav-item top-nav-bar-red text-nowrap"><a class="text-decoration-none" data-bs-toggle="modal"
+                    data-bs-target="#mymodal" href="">Cart <mark class="cart-value">0</mark></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--the model consruct-->
+<div class="modal fade m-0" id="mymodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cart content</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="item-div col">Item</div>
+                        <div class="price-div col">Price</div>
+                    </div>
+                    <div class=" mx-h overflow-auto">
+                        <div class="row" id="modal-meals">
+                            <div class="item-div col" id="meal-discription"></div>
+                            <div class="price-div col" id="meal-price"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="total-div col">Total</div>
+                        <div class="total-div-num col" id="total-price">0.00 SAR</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close-btn btn-secondary closing" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="order-btn red-txt text-decoration-none " data-bs-dismiss="modal"
+                    onclick="order()">Order Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--the model consruct-->
+
+<body>
+    <header>
+        <section id="home">
+            <div class="header container-fluid px-10 py-10 d-flex flex-column justify-content-between gap-5 bg-image">
+                <h1 class="display-3 advertisement-heading">Party Time</h1>
+                <div class="shape">
+                    <h3 class="offer-discription my-3">Buy any 2 burgers and get 1.5L Pepsi Free</h3>
+                </div>
+                <a href="" class="order-btn red-txt text-decoration-none">Order Now</a>
+            </div>
+        </section>
+    </header>
+    <main class="main">
+        <section id="menu">
+            <div class="text-center pt-5">
+                <div class="px-10">
+                    <h2 class=" menu-discription-h2">Want To Eat</h2>
+                    <p>Try our most delicious food and usually takes minutes to deliver</p>
+                </div>
+                <div class="container px-10">
+                    <nav class="d-flex justify-content-evenly align-items-center flex-wrap gap-1">
+                        <a href="projectImages/pizza.svg" class="text-decoration-none text-dark text-nowrap">pizza</a>
+                        <a href="#" class="text-decoration-none text-dark text-nowrap">fast food</a>
+                        <a href="projectImages/cubcake.svg"
+                            class="text-decoration-none text-dark text-nowrap">cupcake</a>
+                        <a href="projectImages/sandwich.svg"
+                            class="text-decoration-none text-dark text-nowrap">sandwish</a>
+                        <a href="#" class="text-decoration-none text-dark text-nowrap">spaghetti</a>
+                        <a href="projectImages/burger.svg" class="text-decoration-none text-dark text-nowrap">burger</a>
+                    </nav>
+                </div>
+                <div class="delivery-statement w-100 p-3 px-10">
+                    <div class="container-fluid">
+                        <div class="row row-cols-1 row-cols-lg-2">
+                            <img src="projectImages/delivery.png" alt="Delivery man holding pizzas"
+                                class="img-fluid col">
+                            <div class="delivery-post col">
+                                <div class="delivery-message-1 px-10">
+                                    <h2>We guarantee 30 minutes delivery</h2>
+                                </div>
+                                <p class=" delivery-message-2">If you are having a meetingworking late at night and need
+                                    an extra push</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <div class="px-10 pt-5">
+                <div class="gallery-discription text-center">
+                    <h2>Our Most Popular Recipies</h2>
+                    <p>Try our most delicious food and usually takes minutes to deliver</p>
+                </div>
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2">
+                        <div class="col">
+                            <div class="card shadow card-item">
+                                <img class=" card-img-top card-item-img" src="projectImages/meal1.png"
+                                    alt="Best sandwish">
+                                <div class="card-body">
+                                    <p class="card-text">⭐ 4.5 rating</p>
+                                    <h4 class="card-title text-decoration-none text-dark">Best sandwish</h4>
+                                    <a href="details.html" class="text-decoration-none text-dark card-text">
+                                        <p class="">Some discription</p>
+                                    </a>
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        <form action="" method="">
+                                            <button type="button" class="add-btn text-nowrap text-light"
+                                                onclick="add_to_cart('Best sandwish', 23.9)">add to
+                                                cart</button>
+                                        </form>
+                                        <p class="card-text text-wrap">23.9 SAR</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow bg-body card-item">
+                                <img class="card-img-top card-item-img" src="projectImages/meal2.png" alt="Burger">
+                                <div class="card-body">
+                                    <p class="card-text">⭐ 4.5 rating</p>
+                                    <h4 class="card-title">Burger</h4>
+                                    <a href="details.html" class="text-decoration-none text-dark card-text">
+                                        <p class="">Some discription</p>
+                                    </a>
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        <form action="" method="get">
+                                            <button type="button" class="add-btn text-nowrap text-light"
+                                                onclick="add_to_cart('Burger', 25.9)">add to
+                                                cart</button>
+                                        </form>
+                                        <p class="card-text text-wrap">25.9 SAR</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow bg-body card-item">
+                                <img class="card-img-top card-item-img" src="projectImages/meal3.png" alt="Burger Meal">
+                                <div class="card-body">
+                                    <p class="card-text">⭐ 4.5 rating</p>
+                                    <h4 class="card-title">Burger Meal</h4>
+                                    <a href="details.html" class="text-decoration-none text-dark card-text">
+                                        <p class="">Some discription</p>
+                                    </a>
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        <form action="" method="get">
+                                            <button type="button" class="add-btn text-nowrap text-light"
+                                                onclick="add_to_cart('Burger Meal', 27.5)">add to
+                                                cart</button>
+                                        </form>
+                                        <p class="card-text text-wrap">27.5 SAR</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow bg-body card-item">
+                                <img class="card-img-top card-item-img" src="projectImages/meal4.png"
+                                    alt="Best Deal Meal">
+                                <div class="card-body">
+                                    <p class="card-text">⭐ 4.5 rating</p>
+                                    <h4 class="card-title">Best Deal Meal</h4>
+                                    <a href="details.html" class="text-decoration-none text-dark card-text">
+                                        <p class="">Some discription</p>
+                                    </a>
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        <form action="" method="get">
+                                            <button type="button" class="add-btn text-nowrap text-light"
+                                                onclick="add_to_cart('Best Deal Meal', 32.9)">add to
+                                                cart</button>
+                                        </form>
+                                        <p class="card-text text-wrap">32.9 SAR</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow bg-body card-item">
+                                <img class="card-img-top card-item-img" src="projectImages/meal5.png"
+                                    alt="Chicken Burger">
+                                <div class="card-body">
+                                    <p class="card-text">⭐ 4.5 rating</p>
+                                    <h4 class="card-title">Chicken Burger</h4>
+                                    <a href="details.html" class="text-decoration-none text-dark card-text">
+                                        <p class="">Some discription</p>
+                                    </a>
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        <form action="" method="get">
+                                            <button type="button" class="add-btn text-nowrap text-light"
+                                                onclick="add_to_cart('Chicken Burger', 19.4)">add to
+                                                cart</button>
+                                        </form>
+                                        <p class="card-text text-wrap">19.4 SAR</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow bg-body card-item">
+                                <img class="card-img-top card-item-img" src="projectImages/meal6.png" alt="Pizza">
+                                <div class="card-body">
+                                    <p class="card-text">⭐ 4.5 rating</p>
+                                    <h4 class="card-title">Pizza</h4>
+                                    <a href="details.html" class="text-decoration-none text-dark card-text">
+                                        <p class="">Some discription</p>
+                                    </a>
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        <form action="" method="get">
+                                            <button type="button" class="add-btn text-nowrap text-light"
+                                                onclick="add_to_cart('Pizza', 28.5)">add to
+                                                cart</button>
+                                        </form>
+                                        <p class="card-text text-wrap">28.5 SAR</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials">
+            <div class="testimonials-box px-10 pt-5">
+                <h2 class="text-center headings">Clients Testimonials</h2>
+                <div id="test-cara" class="carousel slide d-flex justify-content-center" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#test-cara" data-bs-slide-to="0" class="active not-active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#test-cara" data-bs-slide-to="1" aria-label="Slide 2 "
+                            class="not-active"></button>
+                        <button type="button" data-bs-target="#test-cara" data-bs-slide-to="2" aria-label="Slide 3 "
+                            class="not-active"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="container-fluid carousel-item active">
+                            <div class="top-testimonial row row-cols-1 row-cols-lg-2 gap-3 gap-lg-0"">
+                                <img src=" projectImages/man-eating-burger.png" alt="Man eating burger."
+                                class="img-fluid col">
+                                <p class="top-testimonial-item-2 d-lg-flex flex-column justify-content-center col">
+                                    Lorem
+                                    ipsum
+                                    dolor sit amet, consectetur adipiscing
+                                    elit, sed do
+                                    eiusmod tempor incididunt ut labore et
+                                    dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                    nisi ut aliquip ex
+                                    ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                                    esse cillum dolore eu
+                                    fugiat
+                                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                    qui officia deserunt
+                                    mollit
+                                    anim id est laborum.</p>
+                            </div>
+                        </div>
+                        <div class="container-fluid carousel-item">
+                            <div class="top-testimonial row row-cols-1 row-cols-lg-2 gap-3 gap-lg-0"">
+                                <img src=" projectImages/man-eating-burger.png" alt="Man eating burger."
+                                class="img-fluid col">
+                                <p class="top-testimonial-item-2 d-lg-flex flex-column justify-content-center col">
+                                    Lorem
+                                    ipsum
+                                    dolor sit amet, consectetur adipiscing
+                                    elit, sed do
+                                    eiusmod tempor incididunt ut labore et
+                                    dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                    nisi ut aliquip ex
+                                    ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                                    esse cillum dolore eu
+                                    fugiat
+                                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                    qui officia deserunt
+                                    mollit
+                                    anim id est laborum.</p>
+                            </div>
+                        </div>
+                        <div class="container-fluid carousel-item">
+                            <div class="top-testimonial row row-cols-1 row-cols-lg-2 gap-3 gap-lg-0">
+                                <img src="projectImages/man-eating-burger.png" alt="Man eating burger."
+                                    class="img-fluid col">
+                                <p class="top-testimonial-item-2 d-lg-flex flex-column justify-content-center col">
+                                    Lorem
+                                    ipsum
+                                    dolor sit amet, consectetur adipiscing
+                                    elit, sed do
+                                    eiusmod tempor incididunt ut labore et
+                                    dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                    nisi ut aliquip ex
+                                    ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                                    esse cillum dolore eu
+                                    fugiat
+                                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                    qui officia deserunt
+                                    mollit
+                                    anim id est laborum.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#test-cara"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#test-cara"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section id="Contact-Us">
+            <div class="container-fluid p-10 pt-5">
+                <div class="row row-cols-1 row-cols-lg-2">
+                    <div class="col p-0">
+                        <div class="contact-shape px-10 p-10 h-100 d-flex flex-column justify-content-evenly gap-2">
+                            <div class="d-flex flex-column justify-content-center gap-5 p-5">
+                                <div class="text-light">
+                                    phone:<span class="bolder">+966-13-860-0000</span>
+                                </div>
+                                <div class="d-flex gap-4">
+                                    <div class="contact-time-logo">
+                                        <img src="projectImages/clock.svg" alt="Clock symbol">
+                                    </div>
+                                    <div class="text-light d-flex align-items-center">
+                                        sun-thr 11:00 - 23:00 <br> fri-sat
+                                        12:00 -
+                                        23:00
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-4">
+                                    <div class="contact-location-logo"><img src="projectImages/placeholder.svg"
+                                            alt="Map place holder symbol">
+                                    </div>
+                                    <div class="text-light d-flex align-items-center">
+                                        123 KFUPM Student
+                                        Mall <br>
+                                        Dhahran
+                                        34464
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-4 ps-5 flex-wrap">
+                                    <a href="https://www.facebook.com/"
+                                        class="text-decoration-none text-light">Facebook</a> <a
+                                        href="https://twitter.com/" class="text-decoration-none text-light">Twitter</a>
+                                    <a href="https://www.instagram.com/"
+                                        class="text-decoration-none text-light">Instagram</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col p-0">
+                        <img src="projectImages/map.png" alt="Map location" class="img-fluid h-100 w-100 flex-wrap">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container p-0 px-10 py-5 ">
+            <div class="row">
+                <div id="about" class="col-12 col-lg-4">
+                    <img src="projectImages/logo-red.svg" alt="Hot Burger logo" class="footer-img ">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et
+                        dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex
+                        ea
+                        commodo consequat.</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h3 class="headings">USEFUL LINKS</h3>
+                    <nav>
+                        <ul>
+                            <li><a href="index.html#about" class="text-decoration-none text-dark">About</a></li>
+                            <li><a href="index.html#menu" class="text-decoration-none text-dark">Menu</a></li>
+                            <li><a href="index.html#Testimonials"
+                                    class="text-decoration-none text-dark">Testimonials</a></li>
+                            <li><a href="index.html#Contact-Us" class="text-decoration-none text-dark">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h3 class="headings">INTEGRAM FEEDS</h3>
+                    <div class="container-fluid px-0">
+                        <div class="row gap-1">
+                            <div class="col px-1 tt"><a href=""><img src="projectImages/meal1.png" alt="Hot Burger logo"
+                                        class="feed-img img-fluid"></a>
+                            </div>
+                            <div class="col px-1 tt"><a href=""><img src="projectImages/meal2.png" alt="Hot Burger logo"
+                                        class="feed-img img-fluid"></a>
+                            </div>
+                            <div class="col px-1 tt"><a href=""><img src="projectImages/meal3.png" alt="Hot Burger logo"
+                                        class="feed-img img-fluid"></a>
+                            </div>
+                        </div>
+                        <div class="row gap-1">
+                            <div class="col px-1 tt"><a href=""><img src="projectImages/meal4.png" alt="Hot Burger logo"
+                                        class="feed-img img-fluid"></a>
+                            </div>
+                            <div class="col px-1 tt"><a href=""><img src="projectImages/meal5.png" alt="Hot Burger logo"
+                                        class="feed-img img-fluid"></a>
+                            </div>
+                            <div class="col px-1 tt"><a href=""><img src="projectImages/meal6.png" alt="Hot Burger logo"
+                                        class="feed-img img-fluid"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

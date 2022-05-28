@@ -1,0 +1,489 @@
+:root {
+    --clr-dark-red: #A80E0E;
+    --clr-burnt-brown: #281923;
+    --clr-white: white;
+    --clr-orange: #FFAA00;
+    --clr-yellow: #FFDD00;
+    --clr-black: black;
+    --clr-light-gray: lightgray;
+    --clr-gray: #ddd;
+    --clr-snow-gray: #f2f2f2;
+    --clr-invisible: rgba(255, 255, 255, 0);
+    --font-default: Montserrat;
+    --font-heading: Roboto;
+}
+
+/*Make a margin of 10rem on both sides of the page.*/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: var(--font-default);
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Roboto;
+}
+
+main,
+header,
+footer {
+    min-width: 300px;
+}
+
+.header {
+    min-height: 100vh;
+}
+
+
+/*###################################################             Navbar modifications           ###################################################*/
+
+/*-------------------   Modifying default navbar classes    -------------------*/
+/* Change navbar background color.*/
+.navbar-default {
+    background-color: var(--clr-burnt-brown);
+    border-color: var(--clr-white);
+    opacity: 61%;
+}
+
+/* Apply transparent border to the nav links to avoid adding hight to them while hovering.*/
+.navbar-dark .navbar-toggler {
+    border-color: var(--clr-invisible) !important;
+}
+
+/* Anchor tags modifications.*/
+.top-nav-bar a,
+.top-nav-bar-red a {
+    border-top: 4px solid var(--clr-invisible) !important;
+    display: block;
+    color: var(--clr-white);
+    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+    width: 100%;
+}
+
+/* Change the nav items color to red.*/
+.top-nav-bar-red a {
+    background-color: var(--clr-dark-red);
+}
+
+/* Change the border color of nav items while hovering.*/
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    border-top: 4px solid var(--clr-orange) !important;
+}
+
+/* To meet the logo width with navbar toggle button.*/
+.logo-width {
+    max-height: 2rem;
+}
+
+/*-------------------   Modifying default navbar Medias    -------------------*/
+/* These media queries are required to maintain smooth transform for navbar.*/
+@media only screen and (min-width: 1200px) {
+
+    .px-10 {
+        padding: 0 10rem;
+    }
+
+    .py-10 {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+
+    .px-10 {
+        padding: 0 10.5%;
+    }
+
+    .py-10 {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+
+    .py-10 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
+@media screen and (min-width: 0) and (max-width: 991px) {
+    main {
+        overflow-x: scroll;
+    }
+    .san-btn-container {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+/*###################################################             index.html modifications             ###################################################*/
+
+
+/*###################################################             Header modifications           ###################################################*/
+
+/*-------------------   The box that holds all the home contents.    -------------------*/
+#header {
+    min-height: fit-content;
+}
+
+.bg-image {
+    background-image: url('../projectImages/party.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* The orange shape properties */
+.header .shape {
+    display: flex;
+    max-height: fit-content;
+    max-width: 30em;
+    clip-path: polygon(0% 0%, 100% 0%, 87% 50%, 100% 100%, 0 100%, 13% 50%);
+    background: var(--clr-orange);
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 5rem;
+}
+
+/* The advertisement heading */
+.advertisement-heading {
+    color: var(--clr-white);
+}
+
+/* The offer discription */
+.offer-discription {
+    font-family: Montserrat;
+    font-weight: 200;
+    color: var(--clr-white);
+}
+
+/* The button propperties. */
+.order-btn {
+    border-radius: calc(20rem/16);
+    font-family: Roboto;
+    color: var(--clr-dark-red);
+    background: var(--clr-orange);
+    padding: calc(5em/16) calc(20em/16);
+    border: 0;
+    max-width: fit-content;
+}
+
+.close-btn{
+    border-radius: calc(20rem/16);
+    font-family: Roboto;
+    background: var(--clr-dark-red);
+    padding: calc(5em/16) calc(20em/16);
+    border: 0;
+    max-width: fit-content;
+    color: var(--clr-black);
+}
+
+/* The hover effect of the button. */
+.order-btn:hover {
+    color: var(--clr-dark-red);
+    background: var(--clr-yellow);
+}
+
+.cart-value {
+    background-color: var(--clr-orange);
+    border-radius: 0.25rem;
+    padding: auto;
+    color: var(--clr-dark-red)
+}
+
+
+/*###################################################             Menu modifications             ###################################################*/
+
+/*----->The menu heading propperties.*/
+.menu-discription-h2 {
+    color: var(--clr-dark-red);
+}
+
+/*----->The box that holds the delivery statment.*/
+.delivery-statement {
+    background-color: var(--clr-orange);
+    color: var(--clr-white);
+}
+
+/*----->The box that holds the all the text in the delivery statement.*/
+.delivery-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*----->The red triangle propperties.*/
+.delivery-message-1 {
+    display: block;
+    background-color: var(--clr-dark-red);
+    padding: 5rem;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+}
+
+/*----->The heading inside the red triangle propperties.*/
+.delivery-message-1>h2 {
+    text-align: left;
+
+}
+
+/*----->The text under the triangle propperties.*/
+.delivery-message-2 {
+    display: block;
+    text-align: left;
+    padding: 2rem 5rem;
+}
+
+/*###################################################            Gallery modifications           ###################################################*/
+
+.gallery-discription>h2 {
+    color: var(--clr-dark-red);
+    font-size: x-large;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.item {
+    background-color: var(--clr-white);
+    box-shadow: 0px 0px 40px 0.01em var(--clr-light-gray);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 1rem;
+
+}
+
+.item>p,
+.item>.add {
+    padding: 0.5rem 1rem;
+}
+
+.details-img {
+    border-radius: 1rem 1rem 0 0;
+    height: 60%;
+    width: 100%;
+}
+
+.details-items {
+    font-weight: 200;
+}
+
+.add {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.add>p {
+    margin: auto 0 auto 0.6rem;
+}
+
+.add-btn {
+    border-width: 0px;
+    border-radius: calc(28em/16);
+    background: var(--clr-orange);
+    padding: calc(7em/16) calc(20em/16);
+    text-decoration: none;
+    max-width: fit-content;
+    min-width: fit-content;
+}
+
+.add-btn:hover {
+    background: var(--clr-yellow);
+}
+
+.card-item {
+    border-radius: 1rem;
+}
+
+.card-item-img {
+    border-radius: 1rem 1rem 0 0;
+}
+
+
+/*###################################################           Testimonials  modifications           ###################################################*/
+
+
+.carousel-indicators .not-active {
+    background-color: var(--clr-yellow);
+}
+
+.carousel-indicators .active {
+    background-color: var(--clr-orange) !important;
+}
+
+.man-eating-burger {
+    max-width: 25rem;
+}
+
+.contact-shape {
+    background-color: var(--clr-dark-red);
+}
+
+.bolder {
+    font-weight: 700;
+}
+
+/*###################################################             details.html modifications             ###################################################*/
+
+.details-font * {
+    font-family: Roboto
+}
+
+/*###################################################              menue-bar modifications                 ###################################################*/
+/* .detail-nav {
+
+    } */
+
+/*###################################################             sandwish modifications             ###################################################*/
+
+.sandwich-box {
+    display: flex;
+    justify-content: center;
+}
+
+.san-img {
+    flex: 1;
+    border-radius: 1rem;
+    object-fit: cover
+}
+
+.san-btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.amount-btns {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-amount {
+    color: var(--clr-dark-red);
+    background-color: transparent;
+    border: 2px solid var(--clr-orange);
+    border-radius: 7px;
+    padding: 0.25rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  width: 30%;
+  min-width: 1rem;
+}
+.btn-amount:hover {
+    background-color: var(--clr-yellow);
+}
+
+/*###################################################             facts modifications             ###################################################*/
+
+.nutrition-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.facts-table {
+    border-collapse: collapse;
+}
+
+.white-row td,
+.light-gray-row td {
+    padding: 5px 10px;
+    border: 1px solid var(--clr-gray);
+}
+
+.facts-table-body>*:nth-child(even) {
+    background-color: var(--clr-snow-gray);
+}
+
+.white-row:hover,
+.light-gray-row:hover {
+    background-color: var(--clr-gray);
+}
+
+/*###################################################             review modifications             ###################################################*/
+
+
+input[type=range] {
+    max-width: 130px
+}
+
+.review-input {
+    padding: 0.5rem;
+    border: 1px solid var(--clr-black);
+    background-color: var(--clr-snow-gray);
+    color: var(--clr-black);
+    border-radius: 1.2rem;
+    box-shadow: 0px 0px 0px rgba(66, 66, 66, 0);
+    text-shadow: 0px 0px 5px rgba(66, 66, 66, 0);
+}
+
+.review-input:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.review-submit {
+    color: var(--clr-white);
+}
+
+.show {
+    transform: translate(0);
+    transition: ease-out 1s;
+}
+
+.transitioned1 {
+    transform: translate(130%);
+}
+
+.transitioned2 {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+/*###################################################           speacial classes           ###################################################*/
+.headings{
+    color: var(--clr-dark-red);
+    padding: 1.8rem 0;
+    font-size: 1.8rem;
+    font-family: var(--font-heading);
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: var(--clr-orange);
+    color: var(--clr-dark-red);
+    
+}
+
+.mx-h {
+    max-height: 25rem;
+}
