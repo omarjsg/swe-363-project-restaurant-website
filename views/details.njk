@@ -1,0 +1,163 @@
+{% extends "base.njk" %}
+
+{% block body %}
+<body>
+    <main class="main">
+        {%set id = meal.id%}
+            {%set rate = rating(id) %}
+            <section id="sandwich" class="">
+                <div class="px-10 pt-5">
+                    <div
+                        class="sandwich-box gap-3 d-flex flex-column flex-lg-row justify-content-between container-fluid pt-2">
+                        <img src="/projectImages/{{meal.image}}" alt="Meal 1" class="san-img img-fluid">
+                        <div class="san-text">
+                            <div>
+                                <h1 class="headings">{{meal.title}}</h1>
+                            </div>
+                            <div>
+                                <p>{{meal.price}}
+                                    <br>
+                                    <br>
+                                    {%if rate.rating %}
+                                    <p class="card-text">⭐ {{rate.rating}} rating</p>
+                                    {%else%}
+                                    <p class="card-text">⭐ 0 rating</p>
+                                    {%endif%}
+                                </p>
+                            </div>
+                            <div>
+                                <p>{{meal.description}}</p>
+                            </div>
+                            <form action="/sales/cart?id={{meal.id}}&back=/detail/{{meal.id}}" method="POST">
+                                <div class="san-btn-container ">
+                                    <div class="amount-btns">
+                                        <button class="btn-amount" type="button" id="minus">-</button>
+                                        <input name="amount" type="number" class="btn-amount" value="1" id="meal-counter"> 
+                                        <button class="btn-amount" type="button" id="plus">+</button>
+                                    </div>
+                                    <button type="submit" class="add-btn" id="add-to-cart-detail">add to cart
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="san-disc container-fluid p-3">
+                        <ul class="nav nav-pills gap-3 pill">
+                            <li class="nav-item">
+                                <a id="desc-link" class="nav-link active headings text-decoration-none p-2" href="#">
+                                    <span class="headings p-0" id="desc-button">Description</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="rev-link" class="nav-link text-decoration-none p-2" href="#">
+                                {# <a id="rev-link" class="nav-link text-decoration-none p-2" href="/detail/{{meal.id}}/reviews"> #}
+                                    <span class=" headings p-0">Reviews</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="py-2">
+                            <p>{{meal.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="facts" class="">
+                <div class="padding-divs px-10">
+                    <div class="container-fluid nutrition-box">
+                        <h4>nutrition facts</h4>
+                        <table class="facts-table">
+                            <tbody class="facts-table-body">
+                                <tr class="white-row">
+                                    <td colspan="3" class="white-row "><strong>Suplements Facts</strong>
+                                </tr>
+                                <tr class="light-gray-row">
+                                    <td colspan="3"><strong>Serving Size:</strong>{{nutrition.serving_size}}</td>
+                                </tr>
+                                <tr class="white-row">
+                                    <td colspan="3"><strong>Serving Per Container:</strong>{{nutrition.serving_per_container}}</td>
+                                </tr>
+                                <!-- this is where the content of the table starts-->
+                                <tr class="light-gray-row">
+                                    <td></td>
+                                    <td><strong>Amount Per Serving</strong></td>
+                                    <td><strong>%Daily Value</strong></td>
+                                </tr>
+                                {%for fact in facts%}
+                                    {% if loop.index0 % 2 == 0 %}
+                                        <tr class="white-row">
+                                            <td>{{fact.item}}</td>
+                                            <td>{{fact.amount_per_serving}}{{fact.unit}}</td>
+                                            <td>{{fact.daily_value}}</td>
+                                        </tr>
+                                    {%else%}
+                                        <tr class="light-gray-row">
+                                            <td>{{fact.item}}</td>
+                                            <td>{{fact.amount_per_serving}}{{fact.unit}}</td>
+                                            <td>{{fact.daily_value}}</td>
+                                        </tr>
+                                    {%endif%}
+                                {%endfor%}
+                                <tr class="white-row">
+                                    <td colspan="3">*Percent Daily Values are based on a 2,000calorie diet. Your daily
+                                        values
+                                        may be
+                                        higher or
+                                        lower depending on your calorie needs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section id="review" class="hidden">
+                <div class="container-fluid">
+                    <div class="px-10 d-flex flex-column gap-3">
+                        <h3 class="headings p-1">Reviews</h3>
+                        <div class="reviews-carosel">
+                            {# Here is where the reviews will be loaded #}
+                        </div>
+                        <div class="d-flex flex-column gap-3">
+                            <button class="btn add-btn" type="button" id="rev-button">Add Your Review</button>
+                            <div>
+                                <form class="review-form transitioned1 transitioned2 d-flex flex-column gap-3" id="add-review-form"
+                                    method="POST" action="/detail/{{meal.id}}/reviews" enctype="multipart/form-data">
+                                    <div class="review-form-item g-3">
+                                        <label for="image"> image </label>
+                                        <input type="file" id="image" name="uploadedImage">
+                                    </div>
+                                    <div class="review-form-item">
+                                        <label for="range">Rate the Food</label>
+                                        <input type="range" list="tickmarks" step="20" id="range-id" name="rating">
+                                        <datalist id="tickmarks">
+                                            <option value="20"></option>
+                                            <option value="40"></option>
+                                            <option value="60"></option>
+                                            <option value="80"></option>
+                                            <option value="100"></option>
+                                        </datalist>
+                                    </div>
+                                    <div class=" d-flex flex-column gap-2">
+                                        <label for="name" id="actual-name">Name</label>
+                                        <input type="text" placeholder="First and Last name" class="review-input" id="name" name="fullName">
+                                    </div>
+                                    <div class=" d-flex flex-column gap-2">
+                                        <label for="city" id="city-label">City</label>
+                                        <input type="text" placeholder="First and Last name" class="review-input" id="city" name="city">
+                                    </div>
+                                    <div class="d-flex flex-column gap-2">
+                                        <label for="message">Review</label>
+                                        <h5 style="display:none; color:#A80E0E" id="0_chara">Please type your review</h5>
+                                        <textarea id="message" cols="30" rows="10"
+                                            placeholder="Type your review here max 500 characters" class="review-input" maxlength="500" name="message"></textarea>
+                                        <h5 id="review_counter">0 / 500</h5>
+                                    </div>
+                                    <button type="submit" class="add-btn review-submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>    
+{% endblock %}

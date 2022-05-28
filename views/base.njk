@@ -1,0 +1,213 @@
+{% block header%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style-bootstrap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&family=Roboto&display=swap"
+        rel="stylesheet">
+    <title>Restaurant</title>
+</head>
+{% endblock %}
+
+
+{% block navbar %}
+<nav class="navbar navbar-default navbar-expand-lg navbar-dark fixed-top px-10">
+    <div class="container-fluid bg-brown">
+        <a href="/" class="navbar-brand">
+            <img class="logo-width" src="/projectimages/logo-White.svg" alt="logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item top-nav-bar text-nowrap"><a href="/#home" class="text-decoration-none">Home</a>
+            </li>
+            <li class="nav-item top-nav-bar text-nowrap"><a href="/#menu" class="text-decoration-none">Menu</a>
+            </li>
+            <li class="nav-item top-nav-bar text-nowrap"><a href="/#gallery"
+                    class="text-decoration-none">Gallery</a></li>
+            <li class="nav-item top-nav-bar text-nowrap"><a href="/#testimonials"
+                    class="text-decoration-none">Testimonials</a></li>
+            <li class="nav-item top-nav-bar text-nowrap"><a href="/#Contact-Us"
+                    class="text-decoration-none">Cantact us</a></li>
+            <li class="nav-item top-nav-bar-red text-nowrap"><a href="" class="text-decoration-none">Search</a></li>
+            <li class="nav-item top-nav-bar-red text-nowrap"><a href="" class="text-decoration-none">Profile</a>
+            </li>
+            <li class="nav-item top-nav-bar-red text-nowrap"><a class="text-decoration-none" data-bs-toggle="modal"
+                    data-bs-target="#mymodal" href="">Cart <mark class="cart-value">{{cart}}</mark></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--the model consruct-->
+<div class="modal fade m-0" id="mymodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <form action="/sales/order" method="POST">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cart content</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="item-div col">Item</div>
+                        <div class="price-div col">Price</div>
+                    </div>
+                    <div class=" mx-h overflow-auto">
+                        {%for item in mealsInCart%}
+                            <div class="row" id="modal-meals">
+                                <div class="item-div col" id="meal-discription">{{item.title}}</div>
+                                <input name="ids" type="hidden" value="{{item.id}}"> 
+                                <div class="price-div col" id="meal-price">{{item.price}} SAR</div>
+                            </div>
+                        {%endfor%}
+                    </div>
+                    <div class="row">
+                        <div class="total-div col">Total</div>
+                        <div class="total-div-num col" id="total-price">{{total}} SAR</div>
+                    </div>
+                </div>
+                
+                    <div class="modal-footer">
+                        <input name="total" type="hidden" value="{{total}}"> 
+                        <button type="button" class="close-btn btn-secondary closing" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="order-btn red-txt text-decoration-none " data-bs-dismiss="modal" id="final-order">Order Now</button>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+<!--the model consruct-->
+
+{% endblock %}
+
+
+{% block body %}
+{% endblock %}
+
+{% block footer %}
+<footer id="footer">
+    <section id="Contact-Us">
+                <div class="container-fluid p-10 pt-5">
+                    <div class="row row-cols-1 row-cols-lg-2">
+                        <div class="col p-0">
+                            <div class="contact-shape px-10 p-10 h-100 d-flex flex-column justify-content-evenly gap-2">
+                                <div class="d-flex flex-column justify-content-center gap-5 p-5">
+                                    <div class="text-light">
+                                        phone:<span class="bolder">+966-13-860-0000</span>
+                                    </div>
+                                    <div class="d-flex gap-4">
+                                        <div class="contact-time-logo">
+                                            <img src="/projectImages/clock.svg" alt="Clock symbol">
+                                        </div>
+                                        <div class="text-light d-flex align-items-center">
+                                            sun-thr 11:00 - 23:00 <br> fri-sat
+                                            12:00 -
+                                            23:00
+                                        </div>
+                                    </div>
+                                    <div class="d-flex gap-4">
+                                        <div class="contact-location-logo"><img src="/projectImages/placeholder.svg"
+                                                alt="Map place holder symbol">
+                                        </div>
+                                        <div class="text-light d-flex align-items-center">
+                                            123 KFUPM Student
+                                            Mall <br>
+                                            Dhahran
+                                            34464
+                                        </div>
+                                    </div>
+                                    <div class="d-flex gap-4 ps-5 flex-wrap">
+                                        <a href="https://www.facebook.com/"
+                                            class="text-decoration-none text-light">Facebook</a> <a
+                                            href="https://twitter.com/" class="text-decoration-none text-light">Twitter</a>
+                                        <a href="https://www.instagram.com/"
+                                            class="text-decoration-none text-light">Instagram</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-0">
+                            <img src="/projectImages/map.png" alt="Map location" class="img-fluid h-100 w-100 flex-wrap">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <div class="container p-0 px-10 py-5 ">
+            <div class="row">
+                <div id="about" class="col-12 col-lg-4">
+                    <img src="/projectImages/logo-red.svg" alt="Hot Burger logo" class="footer-img ">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et
+                        dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex
+                        ea
+                        commodo consequat.</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h3 class="headings">USEFUL LINKS</h3>
+                    <nav>
+                        <ul>
+                            <li><a href="/#about" class="text-decoration-none text-dark">About</a></li>
+                            <li><a href="/#menu" class="text-decoration-none text-dark">Menu</a></li>
+                            <li><a href="/#testimonials"
+                                    class="text-decoration-none text-dark">Testimonials</a></li>
+                            <li><a href="/#Contact-Us" class="text-decoration-none text-dark">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h3 class="headings">INTEGRAM FEEDS</h3>
+                    <div class="container-fluid px-0">
+                        <div class="row gap-1">
+                            <div class="col px-1 tt"><a href=""><img src="/projectImages/meal1.png"
+                                        alt="Hot Burger logo" class="feed-img img-fluid"></a>
+                            </div>
+                            <div class="col px-1 tt"><a href=""><img src="/projectImages/meal2.png"
+                                        alt="Hot Burger logo" class="feed-img img-fluid"></a>
+                            </div>
+                            <div class="col px-1 tt"><a href=""><img src="/projectImages/meal3.png"
+                                        alt="Hot Burger logo" class="feed-img img-fluid"></a>
+                            </div>
+                        </div>
+                        <div class="row gap-1">
+                            <div class="col px-1 tt"><a href=""><img src="/projectImages/meal4.png"
+                                        alt="Hot Burger logo" class="feed-img img-fluid"></a>
+                            </div>
+                            <div class="col px-1 tt"><a href=""><img src="/projectImages/meal5.png"
+                                        alt="Hot Burger logo" class="feed-img img-fluid"></a>
+                            </div>
+                            <div class="col px-1 tt"><a href=""><img src="/projectImages/meal6.png"
+                                        alt="Hot Burger logo" class="feed-img img-fluid"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
+
+{% endblock %}
+
